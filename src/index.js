@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {changeTextAction,buttonClickAction} from './redux/user/index'
 import User from './pages/user/index';
 import Login from './pages/login/index';
 import reducer from './redux/reducer';
 import registerServiceWorker from './registerServiceWorker';
 
 import { createStore } from 'redux';
-import { Provider, connect } from 'react-redux';
+import { Provider } from 'react-redux';
 import {
     BrowserRouter as Router,
     Route,

@@ -28,7 +28,7 @@ export default function reducer (state = initialState, action)  {
     switch (action.type) {
         case 'CHANGE_TEXT':
             return {
-                text: state.text=='Hello' ? 'user':'Hello'
+                text: state.text==='Hello' ? 'user':'Hello'
             }
         case 'BUTTON_CLICK':
             return {

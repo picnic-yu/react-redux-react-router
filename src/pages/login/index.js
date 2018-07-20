@@ -1,9 +1,17 @@
 import React from 'react';
-import {changeTextAction,buttonClickAction} from '../../redux/login/index'
+import {changeTextAction,buttonClickAction,loginSuccess} from '../../redux/login/index'
 import {  connect } from 'react-redux';
 
 //定义组件
 class Login extends React.Component{
+    constructor(props){
+        super(props)
+        this.handleLogin = this.handleLogin.bind(this);
+    }
+    handleLogin(){
+        console.log(this.props)
+        this.props.loginSuccess(22);
+    }
     render() {
         console.log(this.props)
         const {login, onChangeText, onButtonClick} = this.props;
@@ -12,6 +20,7 @@ class Login extends React.Component{
                 <h1>login</h1>
                 <h1 onClick={onChangeText}> {login.text} </h1>
                 <button onClick={onButtonClick}>click me</button>
+                <button onClick={this.handleLogin}>click me</button>
             </div>
         );
     }
@@ -28,7 +37,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch){
     return{
         onButtonClick:()=>dispatch(buttonClickAction),
-        onChangeText:()=>dispatch(changeTextAction)
+        onChangeText:()=>dispatch(changeTextAction),
+        loginSuccess:(arg)=>dispatch(loginSuccess(arg)),
     }
 }
 
