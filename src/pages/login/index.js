@@ -3,7 +3,10 @@ import {changeTextAction,buttonClickAction,loginSuccess} from '../../redux/login
 import {  connect } from 'react-redux';
 
 //定义组件
-class Login extends React.Component{
+@connect(state=> {
+    return { login: state.login }
+},mapDispatchToProps)
+export default class Login extends React.Component{
     constructor(props){
         super(props)
         this.handleLogin = this.handleLogin.bind(this);
@@ -25,14 +28,6 @@ class Login extends React.Component{
         );
     }
 }
-
-
-//映射Redux state到组件的属性
-function mapStateToProps(state) {
-    console.log(state)
-    return { login: state.login }
-}
-
 //映射Redux actions到组件的属性
 function mapDispatchToProps(dispatch){
     return{
@@ -41,9 +36,5 @@ function mapDispatchToProps(dispatch){
         loginSuccess:(arg)=>dispatch(loginSuccess(arg)),
     }
 }
-
-//连接组件
-export default Login = connect(mapStateToProps, mapDispatchToProps)(Login)
-
 
 

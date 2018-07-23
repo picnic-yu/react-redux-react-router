@@ -33,6 +33,6 @@ export default function reducer (state = initialState, action)  {
     }
 }
 export function loginSuccess(data){
-     console.log(data,'dispatch')
+    console.log(data,'dispatch')
 	return { type:"LOGIN_SUCESS" , payload:data}
 }
